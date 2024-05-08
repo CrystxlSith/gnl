@@ -6,22 +6,48 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:29:23 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/07 15:27:37 by crystal          ###   ########.fr       */
+/*   Updated: 2024/05/08 23:26:56 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	check_error(int fd, char **str)
+char	*new_start(char	*str)
 {
-	if (fd == -1)
-		return (-1);
-	if (!str)
-		*str = (char *)malloc(sizeof(char) * BUFF_SIZE + 1);
-	if (!str)
-		return (-1);
-	return (0);
+	while (*str && *str != '\n')
+	{
+		str++;
+	}
+	if (*str == '\n')
+		str += 1;
+	return (str);
 }
+
+char	*return_line(char *str)
+{
+	char	*newstr;
+	int	i;
+
+	i = 0;
+	while (str[i] != '\n'&& str[i])
+		i++;	
+	newstr = (char *)malloc(sizeof(char)  * (i + 2));
+	if (!newstr)
+		return (NULL);
+	i = 0;
+	while (str[i] && str[i] != '\n')
+	{
+		newstr[i] = str[i];
+		i++;
+	}
+	if (str[i] == '\n')
+	{
+		newstr[i] = '\n';
+		i++;
+	}
+	newstr[i] = '\0';
+	return (newstr);
+} 
 
 char	*next_line(char *str, int fd)
 {
@@ -29,11 +55,13 @@ char	*next_line(char *str, int fd)
 	int		bytes_read;
 
 	bytes_read = 1;
-	while ()
+	while (!ft_strchr(str, '\n') && bytes_read != 0)
 	{
 		bytes_read = read(fd, buf, BUFF_SIZE);
+		if (bytes_read == -1)
+			return (NULL);
 		buf[bytes_read] = '\0';
-		strcat(str, buf);
+		str = ft_strjoin(str, buf);
 	}
 	return (str);
 }
@@ -41,12 +69,20 @@ char	*next_line(char *str, int fd)
 char	*get_next_line(int fd)
 {
 	static char	*str;
+	char		*line;
 
-	if (check_error(fd, str) == -1)
+	str = NULL;
+	if (fd == -1)
 		return (NULL);
-	str = next_line(fd, str);
-
-	return (0);
+	str = next_line(str, fd);
+	line = return_line(str);
+	str = new_start(str);
+	if (!str || !line)
+	{
+		return (NULL);
+	}
+		
+	return (line);
 }
 
 int main(void)
