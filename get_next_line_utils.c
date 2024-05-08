@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 15:29:39 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/08 23:32:06 by crystal          ###   ########.fr       */
+/*   Updated: 2024/05/08 23:40:06 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,6 @@ char	*ft_strjoin(char *s1, char *s2)
 	while (s2[++i])
 		str[j++] = s2[i];
 	str[j] = '\0';
+	free(s1);
 	return (str);
 }
