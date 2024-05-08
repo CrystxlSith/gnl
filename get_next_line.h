@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 02:09:51 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/07 14:28:13 by crystal          ###   ########.fr       */
+/*   Updated: 2024/05/07 15:30:28 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 #include <fcntl.h>
 #define BUFF_SIZE 4096
 
-int	get_next_line(const int fd);
+char	*ft_strchr(const char *s, int c);
+char	*get_next_line(const int fd);
 
 #endif
