@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 02:09:51 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/08 23:32:45 by crystal          ###   ########.fr       */
+/*   Updated: 2024/05/09 00:40:27 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <fcntl.h>
-#define BUFF_SIZE 30
+#define BUFF_SIZE 2151
 
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(const char *s, int c);

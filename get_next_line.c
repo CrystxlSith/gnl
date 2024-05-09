@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:29:23 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/08 23:26:56 by crystal          ###   ########.fr       */
+/*   Updated: 2024/05/09 01:44:35 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,32 @@
 
 char	*new_start(char	*str)
 {
-	while (*str && *str != '\n')
+	char	*adv_str;
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (str[i] && str[i] != '\n')
+		i++;
+	if (!str)
 	{
-		str++;
+		free(str);
+		return(NULL);
 	}
-	if (*str == '\n')
-		str += 1;
-	return (str);
+	adv_str = (char *)malloc(sizeof(char) * (ft_strlen(str) - i + 1));
+	if (!adv_str)
+		return (NULL);
+	i += 1;
+	while (str[i])
+	{
+		adv_str[j] = str[i];
+		i++;
+		j++;
+	}
+	adv_str[j] = '\0';
+	free(str);
+	return (adv_str);
 }
 
 char	*return_line(char *str)
@@ -30,7 +49,12 @@ char	*return_line(char *str)
 
 	i = 0;
 	while (str[i] != '\n'&& str[i])
-		i++;	
+		i++;
+	if (!str[i])
+	{
+		free(str);
+		return (NULL);
+	}
 	newstr = (char *)malloc(sizeof(char)  * (i + 2));
 	if (!newstr)
 		return (NULL);
@@ -46,6 +70,7 @@ char	*return_line(char *str)
 		i++;
 	}
 	newstr[i] = '\0';
+	free(str);
 	return (newstr);
 } 
 
@@ -70,29 +95,32 @@ char	*get_next_line(int fd)
 {
 	static char	*str;
 	char		*line;
-
-	str = NULL;
+	if (!str)
+		str = NULL;
 	if (fd == -1)
 		return (NULL);
 	str = next_line(str, fd);
 	line = return_line(str);
 	str = new_start(str);
 	if (!str || !line)
-	{
 		return (NULL);
-	}
-		
 	return (line);
 }
 
 int main(void)
 {
 	int fd;
+	char	*res;
+	int i = 0;
 
 	fd = open("text.txt", O_RDONLY);
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-	printf("%s\n", get_next_line(fd));
-
+	while (i < 1)
+	{
+		res = get_next_line(fd);
+		printf("%s\n", res);
+		free(res);
+		i++;
+	}
+	close(fd);
 	return 0;
 }

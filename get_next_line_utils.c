@@ -6,7 +6,7 @@
 /*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 15:29:39 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/08 23:40:06 by crystal          ###   ########.fr       */
+/*   Updated: 2024/05/09 02:02:37 by crystal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,11 @@ char	*ft_strjoin(char *s1, char *s2)
 		s1[0] = '\0';
 	}
 	if (!s1 || !s2)
-		return (NULL);	
+		return (NULL);
 	str = (char *)malloc(sizeof(char) * (i1 + i2) + 1);
 	if (!str)
 		return (NULL);
+	
 	while (s1[++i])
 		str[j++] = s1[i];
 	i = -1;
@@ -67,4 +68,4 @@ char	*ft_strjoin(char *s1, char *s2)
 	str[j] = '\0';
 	free(s1);
 	return (str);
-}
+}	
