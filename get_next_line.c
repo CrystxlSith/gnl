@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: crystal <crystal@student.42.fr>            +#+  +:+       +#+        */
+/*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:29:23 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/09 01:44:35 by crystal          ###   ########.fr       */
+/*   Updated: 2024/05/15 17:48:54 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ char	*return_line(char *str)
 		i++;
 	}
 	newstr[i] = '\0';
-	free(str);
 	return (newstr);
 } 
 
@@ -114,7 +113,7 @@ int main(void)
 	int i = 0;
 
 	fd = open("text.txt", O_RDONLY);
-	while (i < 1)
+	while (i < 3)
 	{
 		res = get_next_line(fd);
 		printf("%s\n", res);
