@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:29:23 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/16 11:28:18 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/21 17:54:29 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,13 @@ char	*get_next_line(int fd)
 	if (fd == -1)
 		return (NULL);
 	str = next_line(str, fd);
+	if (str[0] == '\0')
+	{
+		free(str);
+		return(ft_strdup("\0"));
+	}
+	if (!str)
+		return (NULL);
 	line = return_line(str);
 	str = new_start(str);
 	if (!str || !line)
@@ -113,7 +120,7 @@ int main(void)
 	int i = 0;
 
 	fd = open("text.txt", O_RDONLY);
-	while (i < 3)
+	while (i < 2)
 	{
 		res = get_next_line(fd);
 		printf("%s\n", res);

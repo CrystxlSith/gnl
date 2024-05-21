@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 02:09:51 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/16 11:13:51 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/21 17:54:19 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(const char *s, int c);
 char	*get_next_line(const int fd);
 size_t	ft_strlen(const char *s);
+char	*ft_strdup(const char *s);
 
 #endif
