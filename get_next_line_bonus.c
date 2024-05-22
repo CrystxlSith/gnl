@@ -6,10 +6,12 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:25:59 by jopfeiff          #+#    #+#             */
-/*   Updated: 2024/05/22 17:08:08 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:41:24 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <fcntl.h>
 #include "get_next_line_bonus.h"
 
 char	*new_start(char	*str)
@@ -101,17 +103,56 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-// int main(void)
-// {
-// 	int fd;
-// 	char	*res;
-
-// 	fd = open("text.txt", O_RDONLY);
-// 	fd = open("text2.txt", O_RDONLY);
-// 	fd = open("text3.txt", O_RDONLY);
-// 	fd = open("text4.txt", O_RDONLY);
-// 	res = get_next_line(fd);
-// 	printf("%s", res);
-// 	close(fd);
-// 	return 0;
+// int main(void) {
+//     int fd1, fd2, fd3;
+//     char *line;
+//     fd1 = open("text.txt", O_RDONLY);
+//     if (fd1 < 0) {
+//         perror("Error opening test.txt");
+//         return 1;
+//     }
+//     fd2 = open("test2.txt", O_RDONLY);
+//     if (fd2 < 0) {
+//         perror("Error opening test2.txt");
+//         return 1;
+//     }
+//     fd3 = open("test3.txt", O_RDONLY);
+//     if (fd3 < 0) {
+//         perror("Error opening test3.txt");
+//         return 1;
+//     }
+//     line = get_next_line(fd1);
+//     if (line) {
+//         printf("Test1: %s\n", line);
+//         free(line);
+//     }
+//     line = get_next_line(fd2);
+//     if (line) {
+//         printf("Test2: %s\n", line);
+//         free(line);
+//     }
+//     line = get_next_line(fd3);
+//     if (line) {
+//         printf("Test3: %s\n", line);
+//         free(line);
+//     }
+//     line = get_next_line(fd1);
+//     if (line) {
+//         printf("Test1: %s\n", line);
+//         free(line);
+//     }
+//     line = get_next_line(fd2);
+//     if (line) {
+//         printf("Test2: %s\n", line);
+//         free(line);
+//     }
+//     line = get_next_line(fd3);
+//     if (line) {
+//         printf("Test3: %s\n", line);
+//         free(line);
+//     }
+//     close(fd1);
+//     close(fd2);
+//     close(fd3);
+//     return 0;
 // }
