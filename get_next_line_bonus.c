@@ -6,11 +6,11 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:25:59 by jopfeiff          #+#    #+#             */
-/*   Updated: 2024/05/22 16:27:08 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:08:08 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*new_start(char	*str)
 {
@@ -88,16 +88,16 @@ char	*next_line(char *str, int fd)
 
 char	*get_next_line(int fd)
 {
-	static char	*str;
+	static char	*str[10000];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 		return (NULL);
-	str = next_line(str, fd);
-	if (!str)
+	str[fd] = next_line(str[fd], fd);
+	if (!str[fd])
 		return (NULL);
-	line = return_line(str);
-	str = new_start(str);
+	line = return_line(str[fd]);
+	str[fd] = new_start(str[fd]);
 	return (line);
 }
 
@@ -105,16 +105,13 @@ char	*get_next_line(int fd)
 // {
 // 	int fd;
 // 	char	*res;
-// 	int i = 0;
 
 // 	fd = open("text.txt", O_RDONLY);
-// 	while (i < 2)
-// 	{
-// 		res = get_next_line(fd);
-// 		printf("%s\n", res);
-// 		free(res);
-// 		i++;
-// 	}
+// 	fd = open("text2.txt", O_RDONLY);
+// 	fd = open("text3.txt", O_RDONLY);
+// 	fd = open("text4.txt", O_RDONLY);
+// 	res = get_next_line(fd);
+// 	printf("%s", res);
 // 	close(fd);
 // 	return 0;
 // }

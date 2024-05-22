@@ -6,11 +6,11 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 16:26:05 by jopfeiff          #+#    #+#             */
-/*   Updated: 2024/05/22 16:26:22 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:59:07 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *s)
 {
