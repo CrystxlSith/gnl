@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 15:29:39 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/22 15:46:51 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:19:44 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	ft_bzero(void *s, size_t n)
 	}
 }
 
-
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
@@ -62,7 +61,6 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
 
 char	*ft_strjoin(char *s1, char *s2)
 {

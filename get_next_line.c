@@ -6,19 +6,17 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:29:23 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/22 15:50:10 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/22 16:19:21 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-
-
 char	*new_start(char	*str)
 {
+	int		i;
+	int		j;
 	char	*adv_str;
-	int	i;
-	int	j;
 
 	i = 0;
 	j = 0;
@@ -27,7 +25,7 @@ char	*new_start(char	*str)
 	if (!str[i])
 	{
 		free(str);
-		return(NULL);
+		return (NULL);
 	}
 	adv_str = ft_calloc((ft_strlen(str) - i + 1), sizeof(char));
 	if (!adv_str)
@@ -43,16 +41,15 @@ char	*new_start(char	*str)
 	return (adv_str);
 }
 
-
 char	*return_line(char *str)
 {
+	int		i;
 	char	*newstr;
-	int	i;
 
 	i = 0;
 	if (!str[i])
 		return (NULL);
-	while (str[i] != '\n'&& str[i])
+	while (str[i] != '\n' && str[i])
 		i++;
 	newstr = ft_calloc(i + 2, sizeof(char));
 	i = 0;
@@ -64,7 +61,7 @@ char	*return_line(char *str)
 	if (str[i] && str[i] == '\n')
 		newstr[i++] = '\n';
 	return (newstr);
-} 
+}
 
 char	*next_line(char *str, int fd)
 {
@@ -88,7 +85,6 @@ char	*next_line(char *str, int fd)
 	free(buf);
 	return (str);
 }
-
 
 char	*get_next_line(int fd)
 {
