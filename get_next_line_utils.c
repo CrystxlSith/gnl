@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 15:29:39 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/21 17:52:49 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/22 15:46:51 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,32 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
+void	ft_bzero(void *s, size_t n)
+{
+	char	*str;
+	size_t	i;
+
+	str = (char *)s;
+	i = 0;
+	while (i < n)
+	{
+		str[i] = '\0';
+		i++;
+	}
+}
+
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	void	*ptr;
+
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, nmemb * size);
+	return (ptr);
+}
+
 char	*ft_strchr(const char *s, int c)
 {
 	if (!s)
@@ -37,23 +63,6 @@ char	*ft_strchr(const char *s, int c)
 	return (NULL);
 }
 
-char	*ft_strdup(const char *s)
-{
-	char	*dup;
-	int		i;
-
-	i = 0;
-	dup = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
-	if (!dup)
-		return (NULL);
-	while (s[i])
-	{
-		dup[i] = s[i];
-		i++;
-	}
-	dup[i] = '\0';
-	return (dup);
-}
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -67,15 +76,9 @@ char	*ft_strjoin(char *s1, char *s2)
 	j = 0;
 	i1 = ft_strlen(s1);
 	i2 = ft_strlen(s2);
-	if (!s1)
-	{
-		s1 = (char *)malloc(sizeof(char) * 1);
-		s1[0] = '\0';
-		
-	}
 	if (!s1 || !s2)
 		return (NULL);
-	str = (char *)malloc(sizeof(char) * (i1 + i2) + 1);
+	str = (char *)malloc(sizeof(char) * (i1 + i2 + 1));
 	if (!str)
 		return (NULL);
 	while (s1[++i])
