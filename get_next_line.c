@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:29:23 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/29 10:22:57 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/29 13:32:44 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,11 +110,11 @@ char	*get_next_line(int fd)
 // 	char	*res;
 // 	int i = 0;
 
-// 	fd = open("text.txt", O_RDONLY);
-// 	while (i < 2)
+// 	fd = open("test2.txt", O_RDONLY);
+// 	while (i < 1)
 // 	{
 // 		res = get_next_line(fd);
-// 		printf("%s\n", res);
+// 		printf("%s", res);
 // 		free(res);
 // 		i++;
 // 	}

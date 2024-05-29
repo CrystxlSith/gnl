@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 02:09:51 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/22 17:41:08 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/29 13:34:19 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <string.h>
 # include <stdlib.h>
 # include <fcntl.h>
+
+# define BUFFER_SIZE 6
 
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(const char *s, int c);
