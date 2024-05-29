@@ -6,7 +6,7 @@
 /*   By: jopfeiff <jopfeiff@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:29:23 by crystal           #+#    #+#             */
-/*   Updated: 2024/05/22 16:19:21 by jopfeiff         ###   ########.fr       */
+/*   Updated: 2024/05/29 10:22:57 by jopfeiff         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,11 @@ char	*next_line(char *str, int fd)
 	while (bytes_read > 0)
 	{
 		bytes_read = read(fd, buf, BUFFER_SIZE);
-		if (bytes_read == -1)
+		if (bytes_read < 0)
+		{
+			bytes_read = 0;
 			return (NULL);
+		}
 		buf[bytes_read] = 0;
 		str = ft_strjoin(str, buf);
 		if (ft_strchr(buf, '\n'))
